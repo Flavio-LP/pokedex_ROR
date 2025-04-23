@@ -1,0 +1,11 @@
+
+<h1> Pokemons </h1>
+
+<% @pokedex.each do |pokemon| %>
+    <h2> <%= pokemon[:name] %> </h2>   
+    <p> <%= pokemon[:height] %> </p>
+    <p> <%= pokemon[:weight] %> </p>
+    <p> <%= pokemon[:types] %> </p>
+    <p> <%= pokemon[:sprites] %> </p>
+
+<% end %>

@@ -1,0 +1,2 @@
+module PokedexHelper
+end
