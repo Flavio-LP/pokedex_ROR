@@ -14,6 +14,7 @@ class PokedexController < ApplicationController
         order
       }
       pokemon_v2_pokemonsprites {
+        id  
         sprites
       }
     }
@@ -23,23 +24,34 @@ class PokedexController < ApplicationController
     @pokedex = []
 
     # Executa a query GraphQL
-    response = GraphQLClient.query(PokemonQuery)
 
-    if response.data
-      # Processa os dados retornados
-      pokemons = response.data.pokemon_v2_pokemon
-      sprites = response.data.pokemon_v2_pokemonsprites
+   response = GraphQLClient.query(PokemonQuery)
 
-      pokemons.each_with_index do |pokemon, index|
-        sprite_data = sprites[index]&.sprites
+   if response.data
+     # Processa os dados retornados
+     pokemons = response.data.pokemon_v2_pokemon
+     sprites = response.data.pokemon_v2_pokemonsprites
+     #id_pokemon = response.data.pokemon_v2_pokemonsprites.id
 
-        @pokedex << {
-          name: pokemon.name,
-          id: pokemon.id,
-          order: pokemon.order,
-          sprites: sprite_data ? JSON.parse(sprite_data)["front_default"] : nil
-        }
-      end
+     # precisa ordenar o array para que seja visualizado o id do pokemon correto!
+     
+
+     pokemons.each_with_index do |pokemon, index|
+       sprite_data = sprites[index]&.sprites.dig("other", "home", "front_default")
+
+      #if pokemon.name == "charmeleon"
+       # puts id_pokemon
+        #puts response.data.pokemon_v2_pokemonsprites[index]&.sprites
+        #puts sprites[index]&.sprites.dig("other", "home")
+      #end
+
+       @pokedex << {
+         name: pokemon.name,
+         id: pokemon.id,
+         order: pokemon.order,
+         sprites: sprite_data
+       }
+     end
 
       # Ordena o array pelo ID
       @pokedex.sort_by! { |pokemon| pokemon[:id] }
