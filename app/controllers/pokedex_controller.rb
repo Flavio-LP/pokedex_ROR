@@ -31,19 +31,10 @@ class PokedexController < ApplicationController
      # Processa os dados retornados
      pokemons = response.data.pokemon_v2_pokemon
      sprites = response.data.pokemon_v2_pokemonsprites
-     #id_pokemon = response.data.pokemon_v2_pokemonsprites.id
-
-     # precisa ordenar o array para que seja visualizado o id do pokemon correto!
-     
 
      pokemons.each_with_index do |pokemon, index|
-       sprite_data = sprites[index]&.sprites.dig("other", "home", "front_default")
 
-      #if pokemon.name == "charmeleon"
-       # puts id_pokemon
-        #puts response.data.pokemon_v2_pokemonsprites[index]&.sprites
-        #puts sprites[index]&.sprites.dig("other", "home")
-      #end
+       sprite_data = sprites.find { |sprite| sprite.id == pokemon.id }&.sprites.dig("other", "home", "front_default")
 
        @pokedex << {
          name: pokemon.name,
