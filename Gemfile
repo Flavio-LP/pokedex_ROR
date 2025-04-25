@@ -17,6 +17,8 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+mise settings add idiomatic_version_file ruby
+
 gem bundler
 
 gem 'graphql-client'
