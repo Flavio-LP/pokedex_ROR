@@ -1,15 +1,17 @@
+<body>
 
-<h1> Pokemons </h1>
+    <h1 class="text-center"> Pokemons </h1>
 
-<div  class="pokedex-container">
+    <div  class="pokedex-container">
 
-    <% @pokedex.each do |pokemon| %>
-        <div class="pokemon-card">
-            <h2> <%= pokemon[:name] %> </h2>   
-            <p> <%= pokemon[:height] %> </p>
-            <p> <%= pokemon[:weight] %> </p>
-            <p> <%= pokemon[:types] %> </p>
-            <img src=<%= pokemon[:sprites] %> >
-        </div>
-    <% end %>        
-</div>
+        <% @pokedex.each do |pokemon| %>
+            <div class="pokemon-card">
+                <h2> <%= pokemon[:name] %> </h2>   
+                <p> <%= pokemon[:height] %> </p>
+                <p> <%= pokemon[:weight] %> </p>
+                <p> <%= pokemon[:types] %> </p>
+                <img src=<%= pokemon[:sprites] %> >
+            </div>
+        <% end %>        
+    </div>
+</body>

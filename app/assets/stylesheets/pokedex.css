@@ -1,6 +1,12 @@
-.pokedex-container {
+  .text-center{
+    display: flex;
+    text-align: center;
+  }
+  
+  .pokedex-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 16px; 
   }
 
