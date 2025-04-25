@@ -17,7 +17,7 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-idiomatic_version_file_enable_tools = ["*"]
+mise settings add idiomatic_version_file_enable_tools = ["*"]
 
 gem bundler
 
