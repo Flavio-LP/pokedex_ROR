@@ -1,0 +1,7 @@
+[build]
+  command = "bundle exec rails assets:precompile"
+  publish = "public"
+
+[build.environment]
+  RUBY_VERSION = "3.2.2"
+  BUNDLER_VERSION = "2.4.0" # Substitua pela versão do Bundler que você está usando
