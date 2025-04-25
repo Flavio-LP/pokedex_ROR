@@ -20,6 +20,9 @@ class PokedexController < ApplicationController
     }
   GRAPHQL
 
+  #@pokedex = []
+
+
   def index
     @pokedex = []
 
@@ -35,12 +38,14 @@ class PokedexController < ApplicationController
      pokemons.each_with_index do |pokemon, index|
 
        sprite_data = sprites.find { |sprite| sprite.id == pokemon.id }&.sprites.dig("other", "home", "front_default")
+       sprite_data_shiny = sprites.find { |sprite| sprite.id == pokemon.id }&.sprites.dig("other", "home", "front_shiny")
 
        @pokedex << {
          name: pokemon.name,
          id: pokemon.id,
          order: pokemon.order,
-         sprites: sprite_data
+         sprites: sprite_data,
+         sprites_shiny: sprite_data_shiny
        }
      end
 
@@ -50,4 +55,15 @@ class PokedexController < ApplicationController
       render json: { error: "Failed to fetch data from GraphQL API" }, status: :bad_request
     end
   end
+
+  def show
+    @pokemon = @pokedex.find { |p| p[:id] == params[:id].to_i }
+    if @pokemon
+      render :show
+    else
+      render json: { error: "Pokemon not found" }, status: :not_found
+    end
+  end
+
+
 end

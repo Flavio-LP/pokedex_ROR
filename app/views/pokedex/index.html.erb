@@ -9,29 +9,7 @@
             <p> <%= pokemon[:height] %> </p>
             <p> <%= pokemon[:weight] %> </p>
             <p> <%= pokemon[:types] %> </p>
-            <img src= <%= pokemon[:sprites] %> </img>
+            <img src=<%= pokemon[:sprites] %> >
         </div>
     <% end %>        
 </div>
-    
-<style>
-  .pokedex-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;  Espaçamento entre as divs filhas 
-  }
-
-  .pokemon-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    text-align: center;
-    width: 200px;  Largura fixa para cada card 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .pokemon-card img {
-    max-width: 100%;
-    height: auto;
-  }
-</style>

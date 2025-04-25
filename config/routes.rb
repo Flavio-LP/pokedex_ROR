@@ -11,4 +11,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pokedex#index"
+
+  #get "show" => "pokedex#index"
+
+
+  #resources :pokedex, only: [:index, :show]
 end
