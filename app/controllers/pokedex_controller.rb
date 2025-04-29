@@ -56,31 +56,29 @@ class PokedexController < ApplicationController
 
 
        sprite_data = sprites.find { |sprite| sprite.id == pokemon.id }&.sprites.dig("other", "home", "front_default")
-       sprite_data_shiny = sprites.find { |sprite| sprite.id == pokemon.id }&.sprites.dig("other", "home", "front_shiny")
+        # sprite_data_shiny = sprites.find { |sprite| sprite.id == pokemon.id }&.sprites.dig("other", "home", "front_shiny")
+
+        sprite_data ||= "https://ih1.redbubble.net/image.3203944270.2367/st,small,507x507-pad,600x600,f8f8f8.jpg"
 
        @pokedex << {
          name: pokemon.name,
          id: pokemon.id,
          order: pokemon.order,
          sprites: sprite_data,
-         sprites_shiny: sprite_data_shiny,
+         # sprites_shiny: sprite_data_shiny,
          types: types
        }
      end
+
+      # Filtra os Pokémon com base na consulta de pesquisa
+      if params[:query].present?
+        @pokedex.select! { |pokemon| pokemon[:name].downcase.include?(params[:query].downcase) }
+      end
 
       # Ordena o array pelo ID
       @pokedex.sort_by! { |pokemon| pokemon[:id] }
    else
       render json: { error: "Failed to fetch data from GraphQL API" }, status: :bad_request
    end
-  end
-
-  def show
-    @pokemon = @pokedex.find { |p| p[:id] == params[:id].to_i }
-    if @pokemon
-      render :show
-    else
-      render json: { error: "Pokemon not found" }, status: :not_found
-    end
   end
 end

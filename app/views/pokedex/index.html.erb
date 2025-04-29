@@ -1,6 +1,11 @@
 <div class="pokedex-header">
     <h1 class="ph_title">Pokédex</h1>
     <p>Welcome to the Pokédex! Here you can find a list of Pokémon.</p>
+    
+    <!-- Barra de pesquisa -->
+    <form method="get" action="<%= pokedex_index_path %>">
+        <input type="text" name="query" placeholder="Search Pokémon" value="<%= params[:query] %>">
+    </form>
 </div>
 
 <div class="pokedex-container">
@@ -21,9 +26,9 @@
                                 <li><%= type %></li>
                             <% end %>
                         <% else %>
-                            <li>Withot types</li>
+                            <li>Without types</li>
                         <% end %>
-                        </ul>
+                    </ul>
                 </div>
             </div>
         </div>
