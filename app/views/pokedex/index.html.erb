@@ -1,15 +1,31 @@
+<div class="pokedex-header">
+    <h1 class="ph_title">Pokédex</h1>
+    <p>Welcome to the Pokédex! Here you can find a list of Pokémon.</p>
+</div>
 
-<h1> Pokemons </h1>
-
-<div  class="pokedex-container">
-
+<div class="pokedex-container">
     <% @pokedex.each do |pokemon| %>
         <div class="pokemon-card">
-            <h2> <%= pokemon[:name] %> </h2>   
-            <p> <%= pokemon[:height] %> </p>
-            <p> <%= pokemon[:weight] %> </p>
-            <p> <%= pokemon[:types] %> </p>
-            <img src=<%= pokemon[:sprites] %> >
+            <div class="pokemon-card-inner">
+                <!-- Frente da carta -->
+                <div class="pokemon-card-front">
+                    <h2><%= pokemon[:name] %></h2>
+                    <img src="<%= pokemon[:sprites] %>" alt="<%= pokemon[:name] %>">
+                </div>
+                <!-- Verso da carta -->
+                <div class="pokemon-card-back">
+                    <h3>Types</h3>
+                    <ul>
+                        <% if pokemon[:types].present? %>
+                            <% pokemon[:types].each do |type| %>
+                                <li><%= type %></li>
+                            <% end %>
+                        <% else %>
+                            <li>Withot types</li>
+                        <% end %>
+                        </ul>
+                </div>
+            </div>
         </div>
-    <% end %>        
+    <% end %>
 </div>

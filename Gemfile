@@ -17,11 +17,7 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-mise settings add idiomatic_version_file_enable_tools = ["*"]
-
-gem bundler
-
-gem 'graphql-client'
+gem "graphql-client"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
