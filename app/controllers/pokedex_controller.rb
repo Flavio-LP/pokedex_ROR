@@ -72,7 +72,11 @@ class PokedexController < ApplicationController
 
       # Filtra os Pokémon com base na consulta de pesquisa
       if params[:query].present?
-        @pokedex.select! { |pokemon| pokemon[:name].downcase.include?(params[:query].downcase) }
+        query = params[:query].downcase
+        @pokedex.select! do |pokemon|
+          pokemon[:name].downcase.include?(query) || 
+          pokemon[:types].any? { |type| type.downcase.include?(query) }
+        end
       end
 
       # Ordena o array pelo ID
