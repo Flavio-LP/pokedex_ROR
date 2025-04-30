@@ -41,4 +41,4 @@ Este projeto é uma aplicação web construída com **Ruby on Rails** que implem
 Para dúvidas ou sugestões, entre em contato com o desenvolvedor:
 
 - Nome: Flavio Pirola
-- Email: flavio.pirola@example.com
+- Email: flaviol.pirola@gmail.com
