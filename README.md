@@ -6,11 +6,11 @@ Este projeto é uma aplicação web construída com **Ruby on Rails** que implem
 
 ## Funcionalidades
 
-- **Listagem de Pokémon**: Exibe uma lista de Pokémon com informações como nome, ID, tipos e sprites.
-- **Barra de Pesquisa**: Permite buscar Pokémon pelo nome.
+- **Listagem de Pokémon**: Exibe uma lista de Pokémon com informações como nome, imagem e passando o pointer em cima da imagem, é disponibilizado o tipo do Pokémon.
+- **Barra de Pesquisa**: Permite buscar Pokémon pelo nome ou typos disponíveis.
 - **Ordenação**: Os Pokémon são ordenados sequencialmente pelo ID.
 - **Exibição de Tipos**: Mostra os tipos de cada Pokémon.
-- **Fallback para Sprites**: Caso um sprite não esteja disponível, uma imagem padrão é exibida.
+- **Fallback para Imagens**: Caso uma imagem não esteja disponível, uma imagem padrão é exibida.
 
 ---
 
