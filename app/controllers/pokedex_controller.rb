@@ -3,6 +3,7 @@ require "json"
 require "thread"
 require "graphql/client"
 require "graphql/client/http"
+require 'will_paginate/array'
 
 class PokedexController < ApplicationController
   # Define a query GraphQL
@@ -34,7 +35,7 @@ class PokedexController < ApplicationController
 
 
   def index
-    @pokedex = []
+    @pokedex = [] 
 
    # Executa a query GraphQL
 
@@ -81,6 +82,8 @@ class PokedexController < ApplicationController
 
       # Ordena o array pelo ID
       @pokedex.sort_by! { |pokemon| pokemon[:id] }
+
+      @pokedex = @pokedex.paginate(page: params[:page], per_page: 10)
    else
       render json: { error: "Failed to fetch data from GraphQL API" }, status: :bad_request
    end
