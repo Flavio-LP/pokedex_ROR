@@ -139,3 +139,83 @@
     text-align: center;
     box-sizing: border-box;
 }
+
+/* Responsividade para a Pokédex */
+@media (max-width: 1200px) {
+    .pokedex-container {
+        gap: 20px;
+    }
+    .pokemon-card {
+        width: 220px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 900px) {
+    .pokedex-header {
+        margin: 30px;
+    }
+    .pokedex-container {
+        gap: 15px;
+    }
+    .pokemon-card {
+        width: 180px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 600px) {
+    .pokedex-header {
+        margin: 15px;
+    }
+    .pokedex-header h1 {
+        font-size: 1.5rem;
+    }
+    .pokedex-header p {
+        font-size: 1rem;
+    }
+    .pokedex-header input[type="text"] {
+        width: 120px;
+        font-size: 0.9rem;
+    }
+    .pokedex-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .pokemon-card {
+        width: 95vw;
+        max-width: 350px;
+        height: 180px;
+    }
+    .pokemon-card-inner {
+        min-height: 180px;
+    }
+    .paginate {
+        margin: 15px 0 5px 0;
+        width: 100%;
+        overflow-x: auto;
+    }
+    .paginate .pagination {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+    .paginate .pagination li {
+        margin-bottom: 4px;
+    }
+    .paginate .pagination a,
+    .paginate .pagination span {
+        padding: 6px 10px;
+        font-size: 0.95rem;
+        min-width: 28px;
+    }
+}
+
+/* Garante que imagens não estourem o card */
+.pokemon-card img {
+    max-width: 90%;
+    max-height: 120px;
+    height: auto;
+    object-fit: contain;
+}
