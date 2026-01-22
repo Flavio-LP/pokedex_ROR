@@ -19,8 +19,8 @@ gem "jbuilder"
 
 gem "graphql-client"
 
-gem 'will_paginate'
-gem 'will_paginate-bootstrap', '~> 1.0' # Opcional, para Bootstrap
+gem "will_paginate"
+gem "will_paginate-bootstrap", "~> 1.0" # Opcional, para Bootstrap
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -44,6 +44,8 @@ gem "thruster", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+#
+gem "dotenv-rails", "~> 2.1", ">= 2.1.1"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
